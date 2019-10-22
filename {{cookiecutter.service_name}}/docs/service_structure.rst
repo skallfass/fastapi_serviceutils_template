@@ -10,5 +10,5 @@ described at the documentation for ``fastapi-serviceutils``.
 config
 """"""
 
-.. literalinclude:: app/config.yml
+.. literalinclude:: ../app/config.yml
    :caption: config.yml as defined for {{cookiecutter.service_name}}
