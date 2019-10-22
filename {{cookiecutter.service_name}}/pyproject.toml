@@ -10,7 +10,7 @@ include = ["README.md", "app/config.yml"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-fastapi-serviceutils = "^0"
+fastapi-serviceutils = ">=0.3"
 
 [tool.poetry.dev-dependencies]
 autoflake = "^1.3"
