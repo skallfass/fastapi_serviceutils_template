@@ -7,7 +7,6 @@ service:
     readme: 'README.md'
     allowed_hosts:
         - '*'
-    use_prometheus: {{cookiecutter.use_prometheus}}
     use_default_endpoints:
         - alive
         - config
