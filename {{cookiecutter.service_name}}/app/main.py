@@ -5,7 +5,7 @@ Set up the app for the {{cookiecutter.service_name}}.
 from pathlib import Path
 from typing import NoReturn
 
-from fastapi_serviceutils.service import make_app
+from fastapi_serviceutils import make_app
 
 from app import __version__
 from app.endpoints import ENDPOINTS

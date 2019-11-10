@@ -1,5 +1,5 @@
 """Define routers to be available as endpoints in the service."""
-from fastapi_serviceutils.endpoints import set_version_endpoints
+from fastapi_serviceutils.app.endpoints import set_version_endpoints
 
 from app.endpoints.v1 import ENDPOINTS as v1
 
