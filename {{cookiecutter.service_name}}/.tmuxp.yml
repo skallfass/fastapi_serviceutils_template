@@ -1,6 +1,6 @@
 session_name: {{cookiecutter.service_name}}
 start_directory: "${PWD}"
-shell_command_before: source "<PLACE THE ACTIVATE COMMAND FROM VENV HERE>"
+shell_command_before: source "$VIRTUAL_ENV/bin/activate"
 environment:
     PYTHONPATH: ${PWD}
     SHELL: /usr/bin/zsh

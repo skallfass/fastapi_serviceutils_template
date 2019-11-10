@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-SHELL := bash
+SHELL := zsh
 
 .PHONY : check clean docker docs finalize info init tests update help
 .SILENT: check clean docker docs finalize info init tests update _create_devs_env _create_main_env _update_devs_env _update_main_env
@@ -27,68 +27,70 @@ info:
 	echo "" && \
 	echo "Info about current environment:" && \
 	echo '===============================' && \
-	dephell inspect venv && \
-	echo "" && \
-	echo "Outdated dependencies:" && \
-	echo '=====================' && \
-	dephell deps outdated
+	poetry show
 
 # Cleans the working directory
 clean:
-	rm -rf htmlcov && \
-	rm -rf *.egg-info && \
-	rm -rf dist && \
-	rm -rf **/__pycache__ && \
-	rm -rf **/**/__pycache__ && \
-	rm -rf **/**/**/__pycache__ && \
-	rm -rf docs/_build && \
-	rm -rf docs/api && \
-	rm -rf .pytest_cache && \
-	rm -f .coverage && \
+	rm -rf htmlcov; \
+	rm -rf *.egg-info; \
+	rm -rf dist; \
+	rm -rf **/__pycache__; \
+	rm -rf docs/_build; \
+	rm -rf docs/api; \
+	rm -rf .pytest_cache; \
+	rm -rf .coverage; \
 	rm -rf log
 
-_create_devs_env:
-	dephell venv create --env devs --python=$(value python_meant)
+_create_env:
+	poetry install
 
-_update_devs_env:
-	dephell deps install --env devs
+_update_env:
+	poetry update
 
-_create_main_env:
-	dephell venv create --env main --python=$(value python_meant)
+_lock_it:
+	poetry lock
+	dephell deps convert --to requirements.txt
+	cp requirements.txt docs/doc_requirements.txt
 
-_update_main_env:
-	dephell deps install --env main
+_coverage_badge:
+	coverage-badge -f -o docs/_static/coverage.svg
+
+_makefile_doc:
+	make help > docs/makefile_help.txt
+
+_extract_docstrings:
+	sphinx-apidoc -o docs/api --force --implicit-namespaces --module-first app
+
+_html_documentation:
+	PYTHONPATH=. sphinx-build -b html docs docs/_build
+
+_docker_build_image:
+	docker build -t {{cookiecutter.service_name}}:$(value project_version) .
 
 # Run tests using pytest
 tests:
-	PYTHONPATH=. pytest -s
+	pytest
 
 # Finalize the main env
-finalize: update tests
+finalize: tests _lock_it
 
 # Create sphinx documentation for the project
-docs:
-	make help > docs/makefile_help.txt && \
-	coverage-badge -f -o docs/_static/coverage.svg ; \
-	sphinx-apidoc -o docs/api --force --implicit-namespaces --module-first app && \
-	PYTHONPATH=. sphinx-build -b html docs docs/_build
+docs: tests _coverage_badge _makefile_doc _extract_docstrings _html_documentation
 
 # Initialize project
-init: _create_main_env _create_devs_env _update_main_env _update_devs_env
-	poetry lock
+init: _create_env _lock_it
+	git init
+	git add .
+	git commit -m 'Initial commit'
 
 # Update environments based on pyproject.toml definitions and run pre-commit
-update: _update_main_env _update_devs_env
-	poetry lock; \
-	dephell deps convert --to requirements.txt && \
-	cp requirements.txt docs/doc_requirements.txt
+update: _update_env _lock_it
 
-check: update
+check:
 	pre-commit run --all-files
 
 # Create docker-image for project
-docker: finalize
-	docker build -t {{cookiecutter.service_name}}:$(value project_version) .
+docker: finalize _docker_build_image
 
 # Show this help prompt.
 help:

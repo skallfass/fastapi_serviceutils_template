@@ -1,7 +1,7 @@
 service:
     name: '{{cookiecutter.service_name}}'
     mode: 'devl'
-    development_port: {{cookiecutter.service_port}}
+    port: {{cookiecutter.service_port}}
     description: ''
     apidoc_dir: 'docs/_build'
     readme: 'README.md'
@@ -20,13 +20,13 @@ logger:
     format: '{time:YYYY-MM-DD at HH:mm:ss} | {level} | {message}'
 available_environment_variables:
     env_vars:
-        - SERVICE__MODE
-        - SERVICE__DEVELOPMENT_PORT
-        - LOGGER__LEVEL
-        - LOGGER__PATH
-        - LOGGER__FILENAME
-        - LOGGER__ROTATION
-        - LOGGER__RETENTION
-        - LOGGER__FORMAT
+        - {{cookiecutter.service_name.upper()}}_SERVICE__MODE
+        - {{cookiecutter.service_name.upper()}}_SERVICE__PORT
+        - {{cookiecutter.service_name.upper()}}_LOGGER__LEVEL
+        - {{cookiecutter.service_name.upper()}}_LOGGER__PATH
+        - {{cookiecutter.service_name.upper()}}_LOGGER__FILENAME
+        - {{cookiecutter.service_name.upper()}}_LOGGER__ROTATION
+        - {{cookiecutter.service_name.upper()}}_LOGGER__RETENTION
+        - {{cookiecutter.service_name.upper()}}_LOGGER__FORMAT
     external_resources_env_vars: []
     rules_env_vars: []
