@@ -9,8 +9,8 @@ readme = "README.md"
 include = ["README.md", "app/config.yml"]
 
 [tool.poetry.dependencies]
-python = ">=3.7"
-fastapi-serviceutils = ">=1.0"
+python = ">=3.7,<4"
+fastapi-serviceutils = ">=2.0"
 
 [tool.poetry.dev-dependencies]
 autoflake = ">=1.3"

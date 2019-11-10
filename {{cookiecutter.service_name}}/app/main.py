@@ -26,7 +26,7 @@ def main() -> NoReturn:
     Start the service using uvicorn.
     """
     import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=app.config.service.development_port)
+    uvicorn.run(app, host='0.0.0.0', port=app.config.service.port)
 
 
 if __name__ == '__main__':

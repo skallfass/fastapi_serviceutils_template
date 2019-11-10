@@ -1,34 +1,24 @@
 """Endpoint definition for {{cookiecutter.endpoint}}."""
-import logging
-
 from fastapi import APIRouter
+from fastapi import Body
+from fastapi_serviceutils.app import Endpoint
+from fastapi_serviceutils.app import create_id_logger
+from starlette.requests import Request
 
-from app.endpoints.v1.models import Input
-from app.endpoints.v1.models import Output
-# from fastapi_serviceutils.external_resources import call_rest_service
-
-ROUTER = APIRouter()
-PREFIX = '/api/v1/{{cookiecutter.endpoint}}'
-TAGS = ['v1', '{{cookiecutter.endpoint}}']
+from app.endpoints.v1.models import Example as Output
+from app.endpoints.v1.models import GetExample as Input
 
 
-@ROUTER.post(
-    '/',
-    response_model=Output,
-    summary='Example requests.',
-    tags=TAGS,
-)
-async def {{cookiecutter.endpoint}}(input_: Input) -> Output:
-    """Demonstrate a basic endpoint.
+ENDPOINT = Endpoint(router=APIRouter(), route='/{{cookiecutter.endpoint}}', version='v1')
+SUMMARY = 'Example requests.'
+EXAMPLE = Body(..., example={'msg': 'some message.'})
 
-    Parameters:
-        input: the request-parameters converted to an instance of
-            :class:`Input`.
 
-    Returns:
-        the result for the requested parameters.
-
-    """
-    result = Output(msg=input_.msg)
-    logging.debug(f'handling request for endpoint {PREFIX}')
-    return result
+@ENDPOINT.router.post('/', response_model=Output, summary=SUMMARY)
+async def {{cookiecutter.endpoint}}(
+        params: Input = EXAMPLE,
+        request: Request
+) -> Output:
+    _, log = create_id_logger(request=request, endpoint=ENDPOINT)
+    log.debug(f'received request for {request.url} with params {params}.')
+    return Output(msg=params.msg)
