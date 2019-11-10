@@ -17,7 +17,8 @@ logger:
     level: 'debug'
     rotation: '1 days'
     retention: '1 months'
-    format: '{time:YYYY-MM-DD at HH:mm:ss} | {level} | {message}'
+    format: "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> [id: {extra[request_id]}] - <level>{message}</level>"
+
 available_environment_variables:
     env_vars:
         - {{cookiecutter.service_name.upper()}}_SERVICE__MODE
