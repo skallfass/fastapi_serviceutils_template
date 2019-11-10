@@ -16,8 +16,8 @@ EXAMPLE = Body(..., example={'msg': 'some message.'})
 
 @ENDPOINT.router.post('/', response_model=Output, summary=SUMMARY)
 async def {{cookiecutter.endpoint}}(
-        params: Input = EXAMPLE,
-        request: Request
+        request: Request,
+        params: Input = EXAMPLE
 ) -> Output:
     _, log = create_id_logger(request=request, endpoint=ENDPOINT)
     log.debug(f'received request for {request.url} with params {params}.')
