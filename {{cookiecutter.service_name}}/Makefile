@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-SHELL := zsh
+SHELL := bash
 
 .PHONY : check clean docker docs finalize info init tests update help
 .SILENT: check clean docker docs finalize info init tests update _create_devs_env _create_main_env _update_devs_env _update_main_env
@@ -50,19 +50,9 @@ _update_env:
 _lock_it:
 	poetry lock
 	dephell deps convert --to requirements.txt
-	cp requirements.txt docs/doc_requirements.txt
 
 _coverage_badge:
-	coverage-badge -f -o docs/_static/coverage.svg
-
-_makefile_doc:
-	make help > docs/makefile_help.txt
-
-_extract_docstrings:
-	sphinx-apidoc -o docs/api --force --implicit-namespaces --module-first app
-
-_html_documentation:
-	PYTHONPATH=. sphinx-build -b html docs docs/_build
+	coverage-badge -f -o docs/source/coverage.svg
 
 _docker_build_image:
 	docker build -t {{cookiecutter.service_name}}:$(value project_version) .
@@ -75,7 +65,8 @@ tests:
 finalize: tests _lock_it
 
 # Create sphinx documentation for the project
-docs: tests _coverage_badge _makefile_doc _extract_docstrings _html_documentation
+docs: tests _coverage_badge
+	PYTHONPATH=. pydocmd build
 
 # Initialize project
 init: _create_env _lock_it
