@@ -4,10 +4,8 @@ from app.endpoints.v1 import {{cookiecutter.endpoint}}
 
 
 ENDPOINTS = set_version_endpoints(
-    endpoints=[{{cookiecutter.endpoint}}],
-    version='v1',
-    prefix_template='/api/{version}{route}'
+    endpoints=[{{cookiecutter.endpoint}}], version="v1", prefix_template="/api/{version}{route}"
 )
 
 
-__all__ = ['ENDPOINTS']
+__all__ = ["ENDPOINTS"]

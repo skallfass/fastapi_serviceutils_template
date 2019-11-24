@@ -1,6 +1,6 @@
-"""Glue all parts of the {{cookiecutter.service_name}} together.
+"""Glue all parts of the exampleservice together.
 
-Set up the app for the {{cookiecutter.service_name}}.
+Set up the app for the exampleservice.
 """
 from pathlib import Path
 from typing import NoReturn
@@ -12,11 +12,11 @@ from app.endpoints import ENDPOINTS
 
 
 app = make_app(
-    config_path=Path(__file__).with_name('config.yml'),
+    config_path=Path(__file__).with_name("config.yml"),
     version=__version__,
     endpoints=ENDPOINTS,
-    enable_middlewares=['trusted_hosts', 'log_exception'],
-    additional_middlewares=[]
+    enable_middlewares=["trusted_hosts", "log_exception"],
+    additional_middlewares=[],
 )
 
 
@@ -26,8 +26,9 @@ def main() -> NoReturn:
     Start the service using uvicorn.
     """
     import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=app.config.service.port)
+
+    uvicorn.run(app, host="0.0.0.0", port=app.config.service.port)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
