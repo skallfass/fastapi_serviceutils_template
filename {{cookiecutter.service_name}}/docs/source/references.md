@@ -7,6 +7,7 @@ Collection of references, blogs, documentation pages for used packages, tools.
 
 Code formatter for python.
 Used during development of this service inside [pre-commit](#pre-commit).
+Is configured inside the `pyproject.toml`.
 
 As described in official documentation:
 > Blackened code looks the same regardless of the project you're reading.
@@ -20,14 +21,15 @@ Documentation and useful additional resources:
 * [black](https://black.readthedocs.io/en/stable/)
 
 
-## codespell
+## Codespell
 
 Check misspellings in code.
 Used during development of this service inside [pre-commit](#pre-commit).
+Is configured inside the `.pre-commit-config.yml`.
 
 Documentation and useful additional resources:
 
-* [codespell](https://github.com/codespell-project/codespell)
+* [Codespell](https://github.com/codespell-project/codespell)
 
 
 ## Cookiecutter
@@ -59,9 +61,12 @@ Documentation and useful additional resources:
 ## Dephell
 
 Dephell is a tool for project management for Python.
+
 In our workflow we use it to convert the dependencies of a project as defined
 inside the `pyproject.toml` to a `requirements.txt` as it is used inside the
 `Dockerfile` to convert a service to a docker-image.
+
+Usage is configured inside the `pyproject.toml`.
 
 It is automatically used inside `make docker` and `make finalize` (see
 [makefile](../development/helpers/makefile)).
@@ -171,6 +176,7 @@ Documentation and useful additional resources:
 
 Modular source code checker for pep8, pyflakes and co.
 Used during development of this service inside [pre-commit](#pre-commit).
+Is configured inside the `setup.cfg`.
 
 Documentation and useful additional resources:
 
@@ -179,12 +185,26 @@ Documentation and useful additional resources:
 * [pep8 the style guide for python code](https://pep8.org/)
 
 
-## git
+## Flake8-bugbear
+
+A plugin for [Flake8](#flake8) finding likely bugs and design problems in your program.
+Contains warnings that don't belong in pyflakes and [pycodestyle](#pydocstyle).
+
+Used in [pre-Commit](#pre-commit) of the service.
+Is configured inside the `setup.cfg`.
+
+Documentation and useful additional resources:
+
+* [Documentation](https://github.com/PyCQA/flake8-bugbear)
+
+
+## Git
 
 Git is a free and open source distributed version control system.
 
+The service is versioned using git.
 For additional information about the git-workflow used in this service see
-[git-workflow](../development/git_workflow)
+[git-workflow](../development/git_workflow).
 
 Documentation and useful additional resources:
 
@@ -205,7 +225,7 @@ Documentation and useful additional resources:
 ## Loguru
 
 For better traceback in log-files and usage of request-id as context inside
-Jlog-entries, the default logging of fastapi is extended by usage of loguru
+log-entries, the default logging of fastapi is extended by usage of loguru
 inside services based on fastapi-serviceutils.
 
 Documentation and useful additional resources:
@@ -217,6 +237,8 @@ Documentation and useful additional resources:
 
 To wrap common tasks during development of the service, commands are wrapped
 inside a makefile.
+
+Is configured inside `Makefile`.
 For available make-commands during development of the service see
 [makefile](../development/helpers/makefile).
 
@@ -234,6 +256,11 @@ Description from [commonmark.org](https://commonmark.org/help/):
 
 Alternative to restructured text format like it is used in
 Sphinx-Documentations.
+
+This service is documented using Markdown files inside the `docs/source`
+folder.
+The tools required for this documentation are [MkDocs](#mkdocs) and
+[PyDoc-Markdown](#pydoc-markdown).
 
 Documentation and useful additional resources:
 
@@ -253,6 +280,9 @@ From official documentation page:
 It's mostly the same like Sphinx, but oriented on [Markdown](#markdown) and
 a more modern output and usage design.
 
+This service is documented using [PyDoc-Markdown](#pydoc-markdown) which is
+a wrapper around MkDocs with additional functionality.
+
 Documentation and useful additional resources:
 
 * [MkDocs](https://www.mkdocs.org/)
@@ -260,7 +290,8 @@ Documentation and useful additional resources:
 
 ## MkDocs-Material
 
-Used theme in this service for [MkDocs](#mkdocs).
+Used theme in this service for [MkDocs](#mkdocs) (over
+[PyDoc-Markdown](#pydoc-markdown)).
 
 Documentation and useful additional resources:
 
@@ -287,6 +318,8 @@ service at routes:
 * `/docs`
 * `/redoc`
 
+To create these documentation-pages, the package [FastAPI](#fastapi) is used.
+
 Documentation and useful additional resources:
 
 * [OpenAPI](https://www.openapis.org/)
@@ -306,42 +339,71 @@ Documentation and useful additional resources:
 
 ## Pre-Commit
 
+Enables git-hooks for the service.
+Is configured using the `.pre-commit-config.yml`.
+Run a couple of linters, checkers and formatters like [Black](#black),
+[Flake8](#flake8), [PyCodeStyle](#pycodestyle), etc.
+
 Documentation and useful additional resources:
 
+* [Documentation](https://pre-commit.com/)
+* [Available hooks](https://pre-commit.com/hooks.html)
 
-## PyDoc-Markdown
+
+## Pydoc-Markdown
+
+Pydocmd uses [MkDocs](#mkdocs) and extended [Markdown](#markdown) syntax to
+generate Python API documentation.
+
+Used in this service to create this documentation.
+Configured inside the `pydocmd.yml`.
+Markdown files used for the documentation are inside `docs/source`.
 
 Documentation and useful additional resources:
+
+* [Documentation](https://niklasrosenstein.github.io/pydoc-markdown/)
 
 
 ## PyDocStyle
 
+Pydocstyle is a static analysis tool for checking compliance with Python
+docstring conventions.
+
+Used inside [pre-commit](#pre-commit) configured for the service in
+`.pre-commit-config.yml`.
+
 Documentation and useful additional resources:
+
+* [Documentation](http://www.pydocstyle.org/en/latest/index.html)
 
 
 ## Pytest
+
 Tests inside this service are using the pytest-package.
 
 Tested code is easier to refactor and more stable.
-This topic focuses on pytest as the most used and easiest to use
-testing-package for python.
-
-* https://pythontesting.net/framework/pytest/pytest-introduction/
-* https://medium.com/ideas-at-igenius/fixtures-and-parameters-testing-code-with-pytest-d8603abb390a
-* https://realpython.com/python-testing/
-* https://docs.pytest.org/en/latest/
 
 Documentation and useful additional resources:
 
 * [Pytest](https://pytest.org/en/latest/)
+* [Pytest introduction](https://pythontesting.net/framework/pytest/pytest-introduction/)
+* [Fixtures and Parameters](https://medium.com/ideas-at-igenius/fixtures-and-parameters-testing-code-with-pytest-d8603abb390a)
+* [Python Testing](https://realpython.com/python-testing/)
 
 
 ## PyYAML
 
+PyYAML is a full-featured [YAML](#yaml) framework for the Python programming
+language.
+
+Used inside [fastapi-serviceutils](#fastapi-serviceutils) to read the
+`config.yml` to configure the service.
+For additional information about how to configure the service see
+[configuration](/configuration).
+
 Documentation and useful additional resources:
 
 * [PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation)
-
 
 
 ## Requests
@@ -355,27 +417,72 @@ Documentation and useful additional resources:
 
 Services based on fastapi-serviceutils (like this service) use the
 semantic-versioning style.
+It is also named `SemVer`.
+Alternative to other versioning styles like 0ver, CalVer, etc.
+
+Semantic versioning in short:
+
+A version is built of three elements separated by dots (even more elements are
+possible but we are focusing on this short style in this service without
+special cases like pre-releases, alpha, beta, etc.):
+`<MAJOR>.<MINOR>.<PATCH>`
+
+!!! note
+
+    If a bugfix is made in the service, the `patch-version` will be increased.
+    If additional functionality is added without changing previous behaviour of
+    the service, the `minor-version` is increased.
+    If breaking changes are made we increase the `major-version`.
+
+The versioning style is defined in the `pyproject.toml` inside
+`[tool.dephell.main]`.
 
 Documentation and useful additional resources:
 
-* [semver](https://semver.org/)
+* [Semantic Versioning](https://semver.org/)
 
 
 ## SQLAlchemy
 
+From official documentation:
+> SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives
+> application developers the full power and flexibility of SQL.
+> 
+> It provides a full suite of well known enterprise-level persistence
+> patterns, designed for efficient and high-performing database access,
+> adapted into a simple and Pythonic domain language.
+
+This service uses [Databases](#databases) in combination with `SQLAlchemy` to
+interact with databases.
+
 Documentation and useful additional resources:
 
 * [SQLAlchemy](https://www.sqlalchemy.org/)
+* [Most common commands](https://www.pythonsheets.com/notes/python-sqlalchemy.html)
 
 
 ## Tmux
 
+tmux is a terminal multiplexer.
+It lets you switch easily between several programs in one terminal, detach
+them (they keep running in the background) and reattach them to a different
+terminal.
+
+It is used in the service during development in [Tmuxp](#tmuxp).
+
 Documentation and useful additional resources:
 
 * [Tmux](https://github.com/tmux/tmux/wiki)
+* [Cheatsheet](https://tmuxcheatsheet.com/)
+* [Tao of tmux](http://tmuxp.git-pull.com/en/latest/about_tmux.html)
 
 
 ## Tmuxp
+
+Is a [tmux](#tmux) session manager.
+Sessions and workflows can be configured inside a `.tmuxp.yml`.
+
+This service contains such a `tmuxp.yml` for easier development.
 
 Documentation and useful additional resources:
 
@@ -384,6 +491,40 @@ Documentation and useful additional resources:
 
 ## PyToolz
 
+From official documentation:
+> Toolz provides a set of utility functions for iterators, functions, and
+> dictionaries.
+> These functions interoperate well and form the building blocks of common
+> data analytic operations.
+> They extend the standard libraries itertools and functools and borrow
+> heavily from the standard libraries of contemporary functional languages.
+>
+> Toolz provides a suite of functions which have the following functional
+> virtues:
+>
+> * Composable: They interoperate due to their use of core data structures.
+> * Pure: They don’t change their inputs or rely on external state.
+> * Lazy: They don’t run until absolutely necessary, allowing them to support
+>   large streaming data sets.
+>
+> Toolz functions are pragmatic.
+> They understand that most programmers have deadlines.
+>
+> * Low Tech: They’re just functions, no syntax or magic tricks to learn
+> * Tuned: They’re profiled and optimized
+> * Serializable: They support common solutions for parallel computing
+>
+> This gives developers the power to write powerful programs to solve complex
+> problems with relatively simple code.
+> This code can be easy to understand without sacrificing performance.
+> Toolz enables this approach, commonly associated with functional
+> programming, within a natural Pythonic style suitable for most developers.
+
+Toolz is used in [fastapi-serviceutils](#fastapi-serviceutils) on which this
+service is based on.
+
+It is recommended to use functions from this package in this service, too.
+
 Documentation and useful additional resources:
 
 * [PyToolz](https://toolz.readthedocs.io/en/latest/)
@@ -391,15 +532,32 @@ Documentation and useful additional resources:
 
 ## Type Annotations
 
+Also named type hints.
+Annotate types of function- / method-parameters and return values to increase
+readability and easier understanding of what a function requires and what it
+produces.
+
+Also used in [FastAPI](#fastapi) based services, like this service, to
+generate the [OpenAPI](#openapi)-documentation.
+
 Documentation and useful additional resources:
 
 * [Type Annotations](https://docs.python.org/3/library/typing.html)
+* [Using pythons type annotations](https://dev.to/dstarner/using-pythons-type-annotations-4cfe)
+* [Cheatsheet](https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html)
 
 
 ## YAML
 
-Inside the service we use [PyYAML](#pyyaml) to read the configuration-file
-(`config.yml`) for the service.
+YAML is a human friendly data serialization standard for all programming
+languages.
+
+Mostly used for config-files.
+Alternative to `JSON`-file format.
+
+The `config.yml` of this service is such a yaml-file.
+Inside the service (over [fastapi-serviceutils](#fastapi-serviceutils)) we use
+[PyYAML](#pyyaml) to read the configuration-file (`config.yml`) of the service.
 
 Documentation and useful additional resources:
 
