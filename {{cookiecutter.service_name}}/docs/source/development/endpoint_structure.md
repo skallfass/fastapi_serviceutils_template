@@ -2,11 +2,11 @@
 
 Each endpoint is defined in its own file inside `app/endpoints/<version of
 endpoint>/<endpoint-name>.py` (for details about versioning see
-[versioning](versioning)).
+[versioning](../versioning/index.html)).
 
 Each endpoint has his own input- and output-model definition inside
 `app/endpoints/<version of endpoint>/models.py` (for details see
-[models](endpoint_models)).
+[models](../endpoint_models/index.html)).
 
 A basic endpoint looks like:
 ```python
@@ -130,6 +130,7 @@ In this example it is used like:
 Here we define the response_model to be used for the output of this endpoint
 and that we want to show the summary as defined in `SUMMARY` for the
 OpenAPI-documentation of this endpoint.
+
 
 ### parameters of the endpoint-function
 ```python

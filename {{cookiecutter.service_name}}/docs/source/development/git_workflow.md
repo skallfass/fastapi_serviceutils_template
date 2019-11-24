@@ -1,6 +1,7 @@
 # Git-workflow
 
-The git workflow used in development of this service is oriented on:
+The [git](../../references/index.html#git) workflow used in development of
+this service is oriented on:
 [a stable mainline branching model for git](http://www.bitsnbites.eu/a-stable-mainline-branching-model-for-git/)
 
 Each new feature, bugfix, endpoint, etc. results in a new `feature-branch`.

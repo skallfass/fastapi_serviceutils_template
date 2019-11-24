@@ -193,4 +193,4 @@ The environment-variables to be available should be defined inside the
 `config.yml`.
 Setting the values of the environment-variables is done inside the
 `docker-compose.yml` during deployment (for details see
-[deployment](../deployment)).
+[deployment](../deployment/index.html)).

@@ -1,9 +1,11 @@
 # Makefile
 
-Usual tasks during development can be solved using the `Makefile`.
+Usual tasks during development can be solved using the
+[Makefile](../../../references/index.html#makefile).
 
 The basic Makefile created in your project created with `create_service`-util
-of fastapi-serviceutils serves the following commands:
+of [fastapi-serviceutils](../../../references/index.html#fastapi-serviceutils)
+serves the following commands:
 
 
 ## make help
@@ -16,7 +18,8 @@ To be run after `create_service` to create the pyenv for the project.
 
 
 ## make check
-Run linters and checkers using pre-commit.
+Run linters and checkers using
+[pre-commit](../../../references/index.html#pre-commit).
 
 
 ## make clean
@@ -31,7 +34,8 @@ Tag of the docker-image is extracted from the version defined in
 
 
 ## make docs
-Create mkdocs documentation for the project.
+Create [MkDocs](../../../references/index.html#mkdocs) documentation for the
+project.
 
 
 ## make finalize
@@ -44,8 +48,10 @@ dependencies.
 
 
 ## make tests
-Run tests defined for the project using pytest.
+Run tests defined for the project using
+[Pytest](../../../references/index.html#pytest).
 
 
 ## make update
-Update environments based on pyproject.toml definitions and run pre-commit.
+Update environments based on `pyproject.toml` definitions and run
+[pre-commit](../../../references/index.html#pre-commit).

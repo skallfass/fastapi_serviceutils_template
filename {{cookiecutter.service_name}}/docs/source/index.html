@@ -1,0 +1,49 @@
+# Overview
+
+[![Generic badge](https://img.shields.io/badge/Python-3.7-green.svg)](https://shields.io/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Generic badge](https://img.shields.io/badge/Using-poetry-blue.svg)](https://github.com/sdispater/poetry)
+[![Generic badge](https://img.shields.io/badge/Using-PreCommit-grey.svg)](https://pre-commit.com/)
+![coverage](../../coverage.svg)
+
+
+## Service subject-specific documentation
+
+To learn more about the functionality and logic of the service see
+[Subject-specific documentation](/subject_specific_documentation).
+
+
+## Development
+
+This service uses a strict and predefined development workflow (like
+code-style, focused on clean code, a fixed git-workflow, dependency isolation
+in virtual environments using poetry, etc.) as defined in
+the `development`-section.
+
+The `Development`-documentation contains the following sections:
+
+* [Getting started](/development/getting_started)
+* [Dependency management](/development/dependency_management)
+* [Git-workflow](/development/git_workflow)
+* [Configuration](/configuration)
+* [Documentation](/development/documentation)
+* [Testing](/development/testing)
+* Endpoints
+    * [Endpoint structure](/development/endpoint_structure)
+    * [Endpoint model-definition](/development/endpoint_models)
+    * [Endpoint versioning](/development/versioning)
+* Helpers
+    * [Makefile](/development/helpers/makefile)
+    * [Pre-Commit](/development/helpers/pre-commit)
+    * [Tmuxp](/development/helpers/tmuxp)
+* [Running service](/development/running_service)
+* [Recommended additional resources](/recommended)
+
+To achieve this it uses on a couple of packages and tools
+(see [references](/references) for a complete list and details).
+
+
+## Deployment
+
+This service is deployed as a `docker-container`
+(see [deployment](/deployment) for details).

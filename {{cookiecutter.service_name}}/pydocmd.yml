@@ -25,39 +25,40 @@ generate:
 # in the documentation. The path must be relative to current working directory.
 # This configuration is not mandatory if you have your own mkdocs.yml config file.
 pages:
-- Overview: docs/source/index.md << README.md
-- Subject-specific documentation: subject_specific_documentation.md
+- Overview: docs/source/index.html
+- Subject-specific documentation: subject_specific_documentation/index.html
 - Source-Code Documentation:
     - app:
-        - __init__: app.md
-        - main: app_main.md
+        - __init__: app/index.html
+        - main: app_main/index.html
         - endpoints:
-            - __init__: app_endpoints.md
+            - __init__: app_endpoints/index.html
             - v1:
-                - __init__: app_endpoints_v1.md
-                - models: app_endpoints_v1_models.md
-                - errors: app_endpoints_v1_errors.md
-                - {{cookiecutter.endpoint}}: app_endpoints_v1_{{cookiecutter.endpoint}}.md
+                - __init__: app_endpoints_v1/index.html
+                - models: app_endpoints_v1_models/index.html
+                - errors: app_endpoints_v1_errors/index.html
+                - {{cookiecutter.endpoint}}: app_endpoints_v1_{{cookiecutter.endpoint}}/index.html
 - Development:
-    - Getting started: development/getting_started.md
-    - Clean code: development/clean_code.md
-    - Dependency management: development/dependency_management.md
-    - Git-workflow: development/git_workflow.md
-    - Configuration: configuration.md
-    - Documentation: development/documentation.md
-    - Testing: development/testing.md
+    - Getting started: development/getting_started/index.html
+    - Clean code: development/clean_code/index.html
+    - Dependency management: development/dependency_management/index.html
+    - Git-workflow: development/git_workflow/index.html
+    - Configuration: configuration/index.html
+    - Documentation: development/documentation/index.html
+    - Testing: development/testing/index.html
     - Endpoints:
-        - Endpoint: development/endpoint_structure.md
-        - Model-definition: development/endpoint_models.md
-        - Versioning of endpoints: development/versioning.md
+        - Endpoint: development/endpoint_structure/index.html
+        - Model-definition: development/endpoint_models/index.html
+        - Versioning of endpoints: development/versioning/index.html
     - Helpers during development:
-        - Makefile: development/helpers/makefile.md
-        - Tmuxp: development/helpers/tmuxp.md
-        - Pre-commit: development/helpers/pre-commit.md
-    - Running service: development/running_service.md
-    - Recommended additional resources: recommended.md
-- Deployment: deployment.md
-- References of used tools and packages: references.md
+        - Makefile: development/helpers/makefile/index.html
+        - Tmuxp: development/helpers/tmuxp/index.html
+        - Pre-commit: development/helpers/pre-commit/index.html
+    - Running service: development/running_service/index.html
+    - Recommended additional resources: recommended/index.html
+- Deployment: deployment/index.html
+- References of used tools and packages: references/index.html
+- " ": docs/source/index.md << README.md
 
 # These options all show off their default values. You don't have to add
 # them to your configuration if you're fine with the default.

@@ -63,4 +63,4 @@ To run use one of the following (depending on the mode of your service):
       docker-compose -f docker-compose_prod.yml up -d
   ```
 
-For additional information about docker and docker-compose see [references](../references)
+For additional information about docker and docker-compose see [references](../references/index.html)

@@ -8,7 +8,7 @@ create a major-update), we define these changes inside a new version-folder.
 
 For example if we currently have an endpoint `example` and we want to change
 its output-model, we would create a new `feature-branch`
-(see [git-workflow](git_workflow)) and inside this feature-branch we create
+(see [git-workflow](../git_workflow/index.html)) and inside this feature-branch we create
 a new folder `v2`.
 The resulting folder-structure would look like:
 

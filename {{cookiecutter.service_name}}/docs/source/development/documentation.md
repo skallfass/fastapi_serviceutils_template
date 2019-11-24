@@ -1,14 +1,16 @@
 # Documentation
 
-The project's developer documentation is written using MKDocs with
-Pydoc-Markdown.
+The project's developer documentation is written using
+[MKDocs](../../references/index.html#mkdocs) with
+[Pydoc-Markdown](../../references/index.html#pydoc-markdown).
 
 The documentation sources can be found in the `docs/source` subdirectory.
 
 The API-documentation is auto-generated from the docstrings of modules,
 classes, and functions.
 
-These docstrings are written in markdown-syntax.
+These docstrings are written in
+[markdown](../../references/index.html#markdown)-syntax.
 
 
 ## Modifying the documentation
@@ -73,8 +75,10 @@ be found at `docs/_build`.
         PYTHONPATH=. pydocmd serve
     ```
 
-There is also a swagger-documentation to be used for users of the service.
-The documentation can be found at (after starting service):
+There is also a [OpenAPI](../../references/index.html#openapi)-documentation
+to be used for users of the service.
+The documentation can be found at (after [running the
+service](../running_service/index.html)):
 
 * [http://0.0.0.0:{{cookiecutter.service_port}}/docs](http://0.0.0.0:{{cookiecutter.service_port}}/docs)
 * [http://0.0.0.0:{{cookiecutter.service_port}}/redoc](http://0.0.0.0:{{cookiecutter.service_port}}/redoc)

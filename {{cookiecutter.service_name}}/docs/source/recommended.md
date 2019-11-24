@@ -14,8 +14,9 @@
 A good overview and introduction to functional programming is the book
 `Functional Python Programming` from `Steven F. Lott`.
 
-Also the documentation of [PyToolz](/references#pytoolz) gives a good overview
-and introduction what `functional programming` and `pure functions` are.
+Also the documentation of [PyToolz](../references/index.html#pytoolz) gives a
+good overview and introduction what `functional programming` and
+`pure functions` are.
 
 
 ## Testing

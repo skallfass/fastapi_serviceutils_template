@@ -1,7 +1,6 @@
 # Testing
 
-For testing we use `pytest`, for details see
-[Pytest Docs](http://doc.pytest.org/en/latest/).
+For testing we use [Pytest](../../references/index.html#pytest).
 
 
 All tests are located inside the folder `tests`.
@@ -14,7 +13,7 @@ To run all tests:
     make tests
 ```
 
-A HTML coverage report is automatically created in the ``htmlcov`` directory.
+A HTML coverage report is automatically created in the `htmlcov` directory.
 
 !!! seealso
 

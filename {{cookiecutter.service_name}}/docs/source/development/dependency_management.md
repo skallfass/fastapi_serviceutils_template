@@ -3,9 +3,9 @@
 
 ## Basics
 
-We use Poetry_ including the dependency definition inside the
-`pyproject.toml` and `python-venv` for environment management.
-For a wrapper around these tools we use Dephell_ and `make` for easier
+We use Poetry including the dependency definition inside the
+`pyproject.toml` and `pyenv` for environment management.
+For a wrapper around these tools we use Dephell and `make` for easier
 workflow.
 
 **dependency management relevant files:**
@@ -20,10 +20,11 @@ workflow.
 ```
 
 * `pyproject.toml`: stores what dependencies are required in which versions.
-  Required by Dephell_ and Poetry_.
+  Required by [Dephell](../../references/index.html#dephell) and
+  [Poetry](../../references/index.html#poetry).
 * `poetry.lock`: locked definition of installed packages and their versions
   of currently used environment.
-  Created by Poetry_ using `make init`, `make update`, `make tests` or
+  Created by Poetry using `make init`, `make update`, `make tests` or
   `make finalize`.
 * `.python-version`: the version of the python-interpreter used for this
   project.
