@@ -127,7 +127,7 @@ In this example it is used like:
 ```python
 @ENDPOINT.router.post('/', response_model=Output, summary=SUMMARY)
 ```
-Here we define the response_model to be used for the ouput of this endpoint
+Here we define the response_model to be used for the output of this endpoint
 and that we want to show the summary as defined in `SUMMARY` for the
 OpenAPI-documentation of this endpoint.
 
@@ -138,7 +138,7 @@ async def example(request: Request, params: GetExample = EXAMPLE) -> Example:
 requires the parameters `request` as an instance of
 `starlette.requests.Request`.
 This request-variable is used to create the request-id for the current request
-to be used in the logger to be able to differenciate between different requests
+to be used in the logger to be able to differentiate between different requests
 inside the log-file.
 It is used in:
 ```python

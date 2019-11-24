@@ -84,7 +84,7 @@ To define the folder where the to find the apidoc to serve by route
 `readme` defines where to get the readme from to be used as main description
 for the swagger-documentation at `/docs` / `/redoc`.
 
-To controll if only specific hosts are allowed to controll the service we use
+To control if only specific hosts are allowed to access the service we use
 `allowed_hosts`.
 Per default a service would allow all hosts (`*`) but this can be
 customized here in the config.
@@ -132,7 +132,7 @@ The `format` defines the format to be used for log-messages.
 
 ## config: [available__environment_variables]
 
-The environment-variables are seperated into three types:
+The environment-variables are separated into three types:
 
 * `env_vars`
 * `external_resources_env_vars`
