@@ -9,10 +9,11 @@ services:
         ports:
             - "{{cookiecutter.service_port}}:{{cookiecutter.service_port}}"
         environment:
-            - {{cookiecutter.service_name.upper()}}_LOGGER__PATH="./log/{{cookiecutter.service_name}}"
-            - {{cookiecutter.service_name.upper()}}_LOGGER__FILENAME="service.log"
-            - {{cookiecutter.service_name.upper()}}_SERVICE__MODE="prod"
+            - {{cookiecutter.service_name.upper()}}__LOGGER__PATH="/var/log/{{cookiecutter.service_name}}"
+            - {{cookiecutter.service_name.upper()}}__LOGGER__FILENAME="service.log"
+            - {{cookiecutter.service_name.upper()}}__SERVICE__MODE="prod"
+            - {{cookiecutter.service_name.upper()}}__SERVICE__PORT={{cookiecutter.service_port}}
         volumes:
             - type: bind
-              source: "./log/{{cookiecutter.service_name}}"
-              target: "log/{{cookiecutter.service_name}}"
+              source: "/var/log/{{cookiecutter.service_name}}"
+              target: "/var/log/{{cookiecutter.service_name}}"
