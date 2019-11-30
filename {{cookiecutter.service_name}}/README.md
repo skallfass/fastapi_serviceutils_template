@@ -10,7 +10,7 @@
 ## Service subject-specific documentation
 
 To learn more about the functionality and logic of the service see
-[Subject-specific documentation](/subject_specific_documentation).
+[Subject-specific documentation](/subject_specific_documentation/index.html).
 
 
 ## Development
@@ -22,28 +22,28 @@ the `development`-section.
 
 The `Development`-documentation contains the following sections:
 
-* [Getting started](/development/getting_started)
-* [Dependency management](/development/dependency_management)
-* [Git-workflow](/development/git_workflow)
-* [Configuration](/configuration)
-* [Documentation](/development/documentation)
-* [Testing](/development/testing)
+* [Getting started](/development/getting_started/index.html)
+* [Dependency management](/development/dependency_management/index.html)
+* [Git-workflow](/development/git_workflow/index.html)
+* [Configuration](/configuration/index.html)
+* [Documentation](/development/documentation/index.html)
+* [Testing](/development/testing/index.html)
 * Endpoints
-    * [Endpoint structure](/development/endpoint_structure)
-    * [Endpoint model-definition](/development/endpoint_models)
-    * [Endpoint versioning](/development/versioning)
+    * [Endpoint structure](/development/endpoint_structure/index.html)
+    * [Endpoint model-definition](/development/endpoint_models/index.html)
+    * [Endpoint versioning](/development/versioning/index.html)
 * Helpers
-    * [Makefile](/development/helpers/makefile)
-    * [Pre-Commit](/development/helpers/pre-commit)
-    * [Tmuxp](/development/helpers/tmuxp)
-* [Running service](/development/running_service)
-* [Recommended additional resources](/recommended)
+    * [Makefile](/development/helpers/makefile/index.html)
+    * [Pre-Commit](/development/helpers/pre-commit/index.html)
+    * [Tmuxp](/development/helpers/tmuxp/index.html)
+* [Running service](/development/running_service/index.html)
+* [Recommended additional resources](/recommended/index.html)
 
 To achieve this it is based on a couple of packages and tools
-(see [references](/references) for a complete list and details).
+(see [references](/references/index.html) for a complete list and details).
 
 
 ## Deployment
 
 `Deployment` of this service is done inside `docker-containers`
-(see [deployment](/deployment) for details).
+(see [deployment](/deployment/index.html) for details).
