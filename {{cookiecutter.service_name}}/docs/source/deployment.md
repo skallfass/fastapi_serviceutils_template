@@ -37,11 +37,14 @@ creation of the docker image run:
     make docker
 ```
 
-**Note**:
+!!! note
+
     the base docker-image defined as `FROM` inside the `Dockerfile` is an
     alpine-image.
     Perhaps you need to modify it with additional libraries inside `RUN`
     for your dependencies.
+    **ATTENTION**: currently the image is not an alpine image (blocked by
+    required new version of loguru compatible with alpine).
 
 To run the service we use docker-compose.
 In your project created with `create_service` there are three docker-compose
