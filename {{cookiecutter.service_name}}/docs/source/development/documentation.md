@@ -13,6 +13,23 @@ These docstrings are written in
 [markdown](../../references/index.html#markdown)-syntax.
 
 
+## Example docstring
+
+An example how to define a docstring required by pydoc-markdown:
+```python
+"""Example docstring.
+
+# Parameters
+request (starlette.requests.Request): the original request.
+params (app.endpoints.v1.models.Example): the request-parameters converted
+    to an instance of `Example`.
+
+# Returns
+(app.endpoints.v1.models.GetExample): the result of the request.
+
+"""
+```
+
 ## Modifying the documentation
 
 To modify the documentation change the content of the markdown-file containing
