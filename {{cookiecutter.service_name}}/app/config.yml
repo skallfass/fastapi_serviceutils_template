@@ -3,7 +3,7 @@ service:
     mode: 'devl'
     port: {{cookiecutter.service_port}}
     description: ''
-    apidoc_dir: 'docs/_build'
+    apidoc_dir: 'docs/_build/site'
     readme: 'README.md'
     allowed_hosts:
         - '*'
