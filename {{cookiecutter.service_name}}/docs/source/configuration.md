@@ -78,8 +78,8 @@ This can also be overwritten using the environment variable
 
 The `description` is used for the swagger-documentation.
 
-To define the folder where the to find the apidoc to serve by route
-`/api/apidoc/index.html` the keyword `apidoc_dir` is used.
+To define the folder where the to find the apidoc (included when `make docs`
+is run and the service is started) the keyword `apidoc_dir` is used.
 
 `readme` defines where to get the readme from to be used as main description
 for the swagger-documentation at `/docs` / `/redoc`.
