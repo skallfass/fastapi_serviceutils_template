@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from fastapi_serviceutils import make_app
-from fastapi_serviceutils.app import Config
 from fastapi_serviceutils.utils.tests.endpoints import json_endpoint
 
 from app import __version__
