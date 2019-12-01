@@ -21,13 +21,13 @@ logger:
 
 available_environment_variables:
     env_vars:
-        - {{cookiecutter.service_name.upper()}}_SERVICE__MODE
-        - {{cookiecutter.service_name.upper()}}_SERVICE__PORT
-        - {{cookiecutter.service_name.upper()}}_LOGGER__LEVEL
-        - {{cookiecutter.service_name.upper()}}_LOGGER__PATH
-        - {{cookiecutter.service_name.upper()}}_LOGGER__FILENAME
-        - {{cookiecutter.service_name.upper()}}_LOGGER__ROTATION
-        - {{cookiecutter.service_name.upper()}}_LOGGER__RETENTION
-        - {{cookiecutter.service_name.upper()}}_LOGGER__FORMAT
+        - {{cookiecutter.service_name.upper()}}__SERVICE__MODE
+        - {{cookiecutter.service_name.upper()}}__SERVICE__PORT
+        - {{cookiecutter.service_name.upper()}}__LOGGER__LEVEL
+        - {{cookiecutter.service_name.upper()}}__LOGGER__PATH
+        - {{cookiecutter.service_name.upper()}}__LOGGER__FILENAME
+        - {{cookiecutter.service_name.upper()}}__LOGGER__ROTATION
+        - {{cookiecutter.service_name.upper()}}__LOGGER__RETENTION
+        - {{cookiecutter.service_name.upper()}}__LOGGER__FORMAT
     external_resources_env_vars: []
     rules_env_vars: []
