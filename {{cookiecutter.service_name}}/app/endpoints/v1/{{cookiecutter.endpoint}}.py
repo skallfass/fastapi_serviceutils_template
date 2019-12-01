@@ -18,13 +18,14 @@ EXAMPLE = Body(..., example={"msg": "some message."})
 async def {{cookiecutter.endpoint}}(request: Request, params: GetExample = EXAMPLE) -> Example:
     """Example docstring.
 
-    #Parameters:
-        request (Request): the original request.
-        params (Example): the request-parameters converted to an instance of
-            `Example`.
+    # Parameters:
+        request (starlette.requests.Request): the original request required
+            to create the `request_id`.
+        params (app.endpoints.v1.models.Example): the request-parameters
+            converted to an instance of `Example`.
 
     # Returns:
-        (GetExample) the result for the request.
+    (app.endpoints.v1.models.GetExample) the result for the request.
 
     """
     _, log = create_id_logger(request=request, endpoint=ENDPOINT)

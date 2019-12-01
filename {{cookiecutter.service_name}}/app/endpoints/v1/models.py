@@ -1,7 +1,7 @@
-"""Contain models required for the endpoint ``example`` (in version 1).
+"""Contain models required for the endpoint `example` (in version 1).
 
 For models in fastapi-based services pydantic is used.
-So each model inherits from :class:`BaseModel`.
+So each model inherits from `pydantic.BaseModel`.
 """
 
 from pydantic import BaseModel
