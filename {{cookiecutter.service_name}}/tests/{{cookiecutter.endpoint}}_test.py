@@ -26,5 +26,6 @@ def test_endpoint_{{cookiecutter.endpoint}}():
         json_endpoint(
             application=app,
             endpoint=endpoint,
-            expected={'msg': 'test'}
+            expected={'msg': 'test'},
+            payload={'msg': 'test'}
         )
