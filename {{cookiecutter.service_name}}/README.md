@@ -15,8 +15,8 @@ To learn more about the functionality and logic of the service see
 
 ## Development
 
-This service uses a strict and predefined development workflow (like
-code-style, focused on clean code, a fixed git-workflow, dependency isolation
+This service uses a strict and predefined development workflow (including
+code-style, focusing on clean code, a fixed git-workflow, dependency isolation
 in virtual environments using poetry, etc.) as defined in
 the `development`-section.
 
