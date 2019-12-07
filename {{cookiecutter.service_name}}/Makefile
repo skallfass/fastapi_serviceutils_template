@@ -49,20 +49,20 @@ _update_env:
 
 _lock_it:
 	poetry lock
-	dephell deps convert --to requirements.txt
+	poetry export -f requirements.txt --without-hashes > requirements.txt
 
 _coverage_badge:
 	coverage-badge -f -o docs/source/coverage.svg
 
 _docker_build_image:
-	docker build -t {{cookiecutter.service_name}}:$(value project_version) .
+	docker build -t "{{cookiecutter.service_name}}:$(value project_version)" .
 
 # Run tests using pytest
 tests:
 	pytest
 
 # Finalize the main env
-finalize: tests _lock_it
+finalize: _lock_it
 
 # Create sphinx documentation for the project
 docs: tests _coverage_badge
@@ -81,7 +81,7 @@ check:
 	pre-commit run --all-files
 
 # Create docker-image for project
-docker: finalize _docker_build_image
+docker: docs finalize _docker_build_image
 
 # Show this help prompt.
 help:
