@@ -7,7 +7,7 @@ SHELL := bash
 python_meant=$(cat .python-version)
 python_used=$(which python)
 python_version=$(python --version)
-project_version=$(grep 'version = ' pyproject.toml | sed 's/version = //' | sed 's/"//' | sed 's/"//')
+project_version=$(grep '^version = ' pyproject.toml | sed 's/version = //' | sed 's/"//' | sed 's/"//')
 
 
 # Show info about current project
